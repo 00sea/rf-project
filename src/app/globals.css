@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import "tailwindcss";
 
 
@@ -9,11 +8,23 @@
   --foreground: #171717;
 }
 
+@font-face {
+  font-family: Inter;
+  src: url("../assets/fonts/Inter-VariableFont_opsz\,wght.ttf")
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../assets/fonts/Roboto-VariableFont_wdth\,wght.ttf");
+}
+
 @theme {
   --color-primary: #212968;
+  --color-dark: #111536;
   --font-anton: "Anton", sans-serif;
   --font-bebas: "Bebas Neue", sans-serif;
-  --font-inter: "Inter", sans-serif;
+  --font-inter: Inter, sans-serif;
+  --font-roboto: Roboto, sans-serif;
 }
 
 @theme inline {
@@ -33,5 +44,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), sans-serif;
 }

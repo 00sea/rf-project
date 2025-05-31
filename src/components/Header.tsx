@@ -2,34 +2,55 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+  
+    // Check immediately (in case we're already scrolled)
+    handleScroll();
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="w-full bg-primary shadow sticky top-0 z-50">
-      <div className="mx-auto px-50 py-6 flex justify-between items-center">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+        scrolled
+          ? 'bg-primary shadow-md'
+          : 'bg-transparent text-white'
+      }`}
+    >      <div className="mx-auto px-50 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo1.png"
+            src="/logo2.png"
             alt="Club Logo"
             width={40}
             height={40}
             priority
           />
-          <span className="text-5xl font-bebas text-white">
+          <span className="text-4xl font-bebas text-white mt-2 ml-2">
             RAPIER FENCING CLUB
           </span>
+          <p className="text-xs font-semibold  mt-0.5 text-white">
+            Est. 1996
+          </p>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-10 font-medium text-lg font-inter text-white">
-          <Link href="/about" className="hover:text-blue-500">ABOUT</Link>
-          <Link href="/calendar" className="hover:text-blue-500">CALENDAR</Link>
-          <Link href="/payments" className="hover:text-blue-500">PAYMENTS</Link>
-          <Link href="/contact" className="hover:text-blue-500">CONTACT</Link>
+        <nav className="hidden md:flex space-x-10 font-semibold text-white mt-1">
+          <Link href="/about" className="hover:underline hover:underline-offset-6 hover:decoration-2">ABOUT</Link>
+          <Link href="/calendar" className="hover:underline hover:underline-offset-6 hover:decoration-2">CALENDAR</Link>
+          <Link href="/payments" className="hover:underline hover:underline-offset-6 hover:decoration-2">PAYMENTS</Link>
+          <Link href="/contact" className="hover:underline hover:underline-offset-6 hover:decoration-2">CONTACT</Link>
         </nav>
 
         {/* Mobile Menu Button */}
