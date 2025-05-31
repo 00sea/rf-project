@@ -48,8 +48,8 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-10 font-semibold text-white mt-1">
           <Link href="/about" className="hover:underline hover:underline-offset-6 hover:decoration-2">ABOUT</Link>
-          <Link href="/calendar" className="hover:underline hover:underline-offset-6 hover:decoration-2">CALENDAR</Link>
-          <Link href="/payments" className="hover:underline hover:underline-offset-6 hover:decoration-2">PAYMENTS</Link>
+          <Link href="/calendar" className="hover:underline hover:underline-offset-6 hover:decoration-2">SCHEDULE</Link>
+          <Link href="/payments" className="hover:underline hover:underline-offset-6 hover:decoration-2">MEMBERSHIP</Link>
           <Link href="/contact" className="hover:underline hover:underline-offset-6 hover:decoration-2">CONTACT</Link>
         </nav>
 
