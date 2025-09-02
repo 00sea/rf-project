@@ -28,7 +28,7 @@ export default function Hero() {
           </p>
           <a
             href="/contact"
-            className="mt-6 inline-block px-6 py-3 bg-primary tracking-wider font-semibold rounded-lg shadow-md"
+            className="mt-6 inline-block px-6 py-3 bg-primary hover:bg-primary-alt tracking-wider font-semibold rounded-lg shadow-md"
           >
             JOIN NOW
           </a>

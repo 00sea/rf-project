@@ -1,6 +1,7 @@
 // components/Header.tsx
 'use client';
 
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -8,6 +9,9 @@ import Image from 'next/image';
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,11 +27,11 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        scrolled
-          ? 'bg-primary shadow-md'
-          : 'bg-transparent text-white'
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${isHome
+      ? scrolled
+        ? 'bg-primary shadow-md text-white'
+        : 'bg-transparent text-white'
+      : 'bg-primary shadow-md text-white'}`}
     >      <div className="mx-auto px-50 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -40,16 +44,16 @@ export default function Header() {
           <span className="text-4xl font-bebas text-white mt-2 ml-2">
             RAPIER FENCING CLUB
           </span>
-          <p className="text-xs font-semibold  mt-0.5 text-white">
+          {/* <p className="text-xs font-semibold  mt-0.5 text-white">
             Est. 1996
-          </p>
+          </p> */}
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-10 font-semibold text-white mt-1">
           <Link href="/about" className="hover:underline hover:underline-offset-6 hover:decoration-2">ABOUT</Link>
           <Link href="/calendar" className="hover:underline hover:underline-offset-6 hover:decoration-2">SCHEDULE</Link>
-          <Link href="/payments" className="hover:underline hover:underline-offset-6 hover:decoration-2">MEMBERSHIP</Link>
+          <Link href="/programs" className="hover:underline hover:underline-offset-6 hover:decoration-2">MEMBERSHIP</Link>
           <Link href="/contact" className="hover:underline hover:underline-offset-6 hover:decoration-2">CONTACT</Link>
         </nav>
 

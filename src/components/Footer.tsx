@@ -1,35 +1,46 @@
-// components/Footer.tsx
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-10 px-4 sm:px-10">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
-        {/* Club Info */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3">Rapier Fencing Club</h4>
-          <p>
-            Building confidence, skill, and sportsmanship through the art of fencing.
-          </p>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-16 text-sm">
+        {/* Club Logo */}
+        <div className="pr-10">
+          <Image
+            src="/logofull.png"
+            alt="Club Logo"
+            width={300}
+            height={40}
+            priority
+          />
         </div>
 
-        {/* Quick Links */}
+        {/* Mailing List */}
         <div>
-          <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
-          <ul className="space-y-2">
-            <li><Link href="/about" className="hover:underline">About Us</Link></li>
-            <li><Link href="/calendar" className="hover:underline">Calendar</Link></li>
-            <li><Link href="/payments" className="hover:underline">Payments</Link></li>
-            <li><Link href="/contact" className="hover:underline">Contact</Link></li>
-          </ul>
-        </div>
-
-        {/* Location */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3">Location</h4>
-          <p>123 Fencing Lane<br />Vancouver, BC<br />Canada</p>
+          <h4 className="text-lg font-semibold mb-3">Join Our Mailing List</h4>
+          <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-2">
+            <input
+              type="text"
+              placeholder="Your name"
+              required
+              className="w-full px-3 py-2 rounded bg-white text-black text-sm focus:outline-none"
+            />
+            <input
+              type="email"
+              placeholder="Your email"
+              required
+              className="w-full px-3 py-2 rounded bg-white text-black text-sm focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="w-fit mt-1 px-4 py-2 bg-primary hover:bg-primary-alt text-white text-sm rounded"
+            >
+              Subscribe
+            </button>
+          </form>
         </div>
 
         {/* Contact Info */}
@@ -40,9 +51,9 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-10 text-center text-xs text-gray-400">
+      {/* <div className="mt-10 text-center text-xs text-gray-400">
         © {new Date().getFullYear()} Rapier Fencing Club. All rights reserved.
-      </div>
+      </div> */}
     </footer>
   );
 }

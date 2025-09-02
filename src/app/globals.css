@@ -20,9 +20,15 @@
 
 @theme {
   --color-primary: #212968;
+  --color-primary-alt: #1c2257;
   --color-dark: #111536;
-  --color-contrast: #FFD75D;
-  --color-contrast2: #f9a03f;
+  /* --color-contrast: #FFD75D; */
+  --color-contrast: #D98628;
+  /* --color-contrast2: #f9a03f; */
+  --color-contrast2: #6C71A0;
+  --color-beginner: #27ae60;
+  --color-intermediate: #f39c12;
+  --color-advanced: #c0392b;
   --font-anton: "Anton", sans-serif;
   --font-bebas: "Bebas Neue", sans-serif;
   --font-inter: Inter, sans-serif;
